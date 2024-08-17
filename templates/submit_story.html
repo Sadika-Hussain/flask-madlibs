@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Story Form {% endblock %}
+
+{% block content%}
+<h1>MADLIBS</h1>
+<form action="/show_story">
+    <input type="hidden" name="story_id" value="{{hidden_query}}">
+    {% for word in prompts %}
+    <label for="{{ word }}">{{ word.capitalize() }}</label>
+    <input type="text" name="{{ word }}" id="{{ word }}" minlength="3" required autocomplete="off">
+    <br><br>
+    {% endfor %}
+    <input type="submit" value="Create Story">
+</form>
+
+{% endblock %}

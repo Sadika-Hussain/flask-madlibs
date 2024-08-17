@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content%}
+
+<h1>Mad Libs Story Selector</h1>
+<form action="/submit_story">
+    <label for="storySelector">Choose a story:</label>
+    <select id="storySelector" name="story">
+        {% for story in stories %}
+        <option value={{story}}>{{story}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
